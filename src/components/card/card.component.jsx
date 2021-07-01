@@ -8,7 +8,7 @@ import locked from "../../assets/document.png";
 import clip from "../../assets/paper-clip.png";
 import CustomButton from "../CustomButton/custom-button.component";
 
-function Card({ type }) {
+function Card({ isConfidential, isAttachment }) {
   return (
     <div className="card">
       <div className="first__row">
@@ -56,21 +56,24 @@ function Card({ type }) {
         </div>
       </div>
 
-      {type !== "none" && type === "confidential" && (
-        <div className="confidential">
-          <img src={locked} alt="lock icon" />
-          <p>
-            <span>Private Request. </span>This request can only be seen by you.
-          </p>
-        </div>
-      )}
+      {(isConfidential || isAttachment) && (
+        <div className="extra-message">
+          {isAttachment && (
+            <div className="attachments">
+              <img src={clip} alt="attachment" />
+              <p>Manage Attachments</p>
+            </div>
+          )}
 
-      {type !== "none" && type === "attachments" && (
-        <div className="attachments">
-          <img src={clip} alt="attachment" />
-          <p>
-            Manage Attachments
-          </p>
+          {isConfidential && (
+            <div className="confidential">
+              <img src={locked} alt="lock icon" />
+              <p>
+                <span>Private Request. </span>This request can only be seen by
+                you.
+              </p>
+            </div>
+          )}
         </div>
       )}
     </div>

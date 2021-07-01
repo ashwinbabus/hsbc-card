@@ -3,39 +3,39 @@ import Card from "../card/card.component";
 import "./container.styles.scss";
 
 function Container() {
-  const [cardType, setCardType] = useState("none");
-  const handleRadio = (e) => {
-      setCardType(e.target.value)
-  }
+  const [isConfidential, setIsConfidential] = useState(false);
+  const [isAttachment, setIsAttachment] = useState(false);
+
   return (
     <div className="container">
       <div className="toggle">
-        <label htmlFor="none">None</label>
-        <input
-          type="radio"
-          name="type"
-          id=""
-          value="none"
-          onChange={(e) => handleRadio(e)}
-        />
         <label htmlFor="confidential">Confidential</label>
         <input
-          type="radio"
-          name="type"
+          type="checkbox"
+          name="confidential"
           id=""
           value="confidential"
-          onChange={(e) => handleRadio(e)}
+          onChange={(e) =>
+            e.target.checked
+              ? setIsConfidential(true)
+              : setIsConfidential(false)
+          }
         />
         <label htmlFor="attachments">With attachments</label>
         <input
-          type="radio"
-          name="type"
+          type="checkbox"
+          name="attachments"
           id=""
           value="attachments"
-          onChange={(e) => handleRadio(e)}
+          onChange={(e) =>
+            e.target.checked ? setIsAttachment(true) : setIsAttachment(false)
+          }
         />
       </div>
-      <Card type={cardType}/>
+      <Card
+        isConfidential={isConfidential}
+        isAttachment={isAttachment}
+      />
     </div>
   );
 }
