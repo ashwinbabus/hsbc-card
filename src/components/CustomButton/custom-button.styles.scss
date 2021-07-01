@@ -1,0 +1,22 @@
+.custom-button {
+  height: 40px;
+  padding: 0 20px;
+  font-size: 14px;
+  line-height: 18px;
+  cursor: pointer;
+}
+
+.secondary-cta {
+  background-color: #4d6474;
+  color: white;
+  border: none;
+}
+
+.tertiary-cta {
+  background-color: #ffffff;
+  border: 1px solid #252525;
+  margin-right: 10px;
+  &:hover{
+     background-color: rgba(0,0,0,0.3);
+  }
+}

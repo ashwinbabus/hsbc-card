@@ -1,0 +1,134 @@
+.card {
+  width: 780px;
+  border-top: 1px solid #252525;
+  border-bottom: 1px solid #252525;
+  background-color: white;
+  img {
+    cursor: pointer;
+  }
+}
+
+.first__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .request_title {
+    margin: 17px 20px 20px 0;
+    flex-grow: 1;
+
+    p {
+      &:first-child {
+        font-size: 20px;
+        line-height: 22px;
+        font-weight: 500;
+        color: #252525;
+        margin-bottom: 11px;
+      }
+      &:last-child {
+        margin-bottom: 12px;
+        line-height: 15px;
+        font-weight: 500;
+        color: #252525;
+        margin-bottom: 11px;
+      }
+    }
+  }
+
+  .request_actions {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    img {
+      height: 18px;
+      width: 18px;
+    }
+    .image {
+      padding: 5px 20px;
+    }
+    .br {
+      border-right: 1px solid #767676;
+    }
+  }
+}
+
+.second__row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  .request_details {
+    display: flex;
+    flex-grow: 1;
+    .col {
+      padding: 0 25px 0 8px;
+      border-left: 1px solid #767676;
+      p {
+        &:first-child {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 15px;
+          color: #767676;
+        }
+        &:last-child {
+          font-size: 12px;
+          line-height: 15px;
+          font-weight: 500;
+          color: #252525;
+        }
+      }
+    }
+
+    .pending {
+      display: flex;
+      img {
+        height: 15px;
+        width: 15px;
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .full_details {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-left: 12px;
+      height: 15px;
+      width: 15px;
+    }
+  }
+}
+
+@mixin type {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  margin-right: 20px;
+  img {
+    height: 14px;
+    width: 14px;
+    margin-right: 8px;
+  }
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: #252525;
+}
+
+.confidential {
+  @include type;
+  span {
+    font-weight: 500;
+  }
+}
+
+.attachments{
+  @include type;
+  img{
+    height: 12px;
+    width: 13px;
+  }
+  font-weight: 500;
+  text-decoration: underline;
+}
